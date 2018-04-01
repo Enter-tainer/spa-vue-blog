@@ -38,7 +38,6 @@
             <ul class="mdui-list" v-for="i in articles">
                 <router-link :to="root_dir+'/post/'+i.filename+'/'+i.title">
                     <li class="mdui-list-item mdui-ripple">
-                        <!-- <i class="mdui-list-item-icon mdui-icon material-icons">laptop_chromebook</i> -->
                         <div class="mdui-list-item-content">{{ i.title }}</div>
                     </li>
                 </router-link>
@@ -55,9 +54,13 @@
         props: ['filename', 'title'],
         template: `
         <div v-if="!loading">
-            <div class="mdui-typo-display-3 mdui-m-t-2 mdui-m-b-2">{{ title }}</div>
-            <div class="mdui-divider mdui-m-t-1 mdui-m-b-1"></div>
-            <div class="mdui-typo" v-html="md"></div>
+            <div class="mdui-card mdui-m-t-2 mdui-shadow-5">
+                <div class="mdui-card-primary">
+                    <div class="mdui-typo-display-1 mdui-m-t-1 mdui-m-b-1">{{ title }}</div>
+                </div>
+                <div class="mdui-divider mdui-m-t-1 mdui-m-b-1"></div>
+                <div class="mdui-typo mdui-card-content" v-html="md"></div>
+            </div>
         </div>
         <div class="mdui-spinner mdui-center mdui-valign mdui-m-t-4" v-else></div>
         `,
