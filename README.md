@@ -2,6 +2,8 @@
 
 一个xjb写的东西
 
+在[这里](https://margatroid-vue-blog.netlify.com)观看示例
+
 > A Vue.js project
 
 ## Build Setup
