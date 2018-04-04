@@ -1,4 +1,6 @@
-# vue-mod-blog
+# vue-blog
+
+一个xjb写的东西
 
 > A Vue.js project
 
