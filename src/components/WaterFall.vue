@@ -16,15 +16,12 @@ import moment from 'moment'
 import _ from 'lodash'
 export default {
   name: 'WaterFall',
+  props: ['raw_article'],
   data: function () {
     return {
       article: [],
-      raw_article: [],
       loading: true
     }
-  },
-  mounted () {
-    this.getArticles()
   },
   components: {WaterfallItem},
   methods: {
@@ -48,19 +45,15 @@ export default {
         }.bind(this))
     },
     getArticles: function () {
-      fetch('static/data.json')
-        .then(response => response.json())
-        .then(json => {
-          this.raw_article = json.data
-        })
-        .then(function () {
-          for (var i = 0; i < this.raw_article.length; ++i) {
-            this.getSingleArticle(this.raw_article[i])
-          }
-        }.bind(this))
-        .then(function () {
-          this.loading = false
-        }.bind(this))
+      for (var i = 0; i < this.raw_article.length; ++i) {
+        this.getSingleArticle(this.raw_article[i])
+      }
+      this.loading = false
+    }
+  },
+  watch: {
+    raw_article: function () {
+      this.getArticles()
     }
   }
 }

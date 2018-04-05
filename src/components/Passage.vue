@@ -25,22 +25,20 @@ import moment from 'moment'
 
 export default {
   name: 'Passage',
-  props: ['filename', 'title'],
+  props: ['filename', 'title', 'raw_article'],
   data: function () {
     return {
       loading: true,
       error: false,
       md: '',
-      articles: [],
       article_title: '',
       article_time: ''
     }
   },
   mounted () {
     mdui.mutation()
-    this.compiledMarkdown(this.filename)
     this.getTitle()
-    this.article_title = this.title
+    this.compiledMarkdown(this.filename)
   },
   methods: {
     compiledMarkdown: function (filename) {
@@ -97,19 +95,12 @@ export default {
       }, 100)
     },
     getTitle: function () {
-      fetch('static/data.json')
-        .then(response => response.json())
-        .then(json => {
-          this.articles = json.data
-        })
-        .then(function () {
-          for (var i = 0; i < this.articles.length; ++i) {
-            if (this.articles[i].filename === this.filename) {
-              this.article_title = this.articles[i].title
-              this.article_time = this.articles[i].time
-            }
-          }
-        }.bind(this))
+      for (var i = 0; i < this.raw_article.length; ++i) {
+        if (this.raw_article[i].filename === this.filename) {
+          this.article_title = this.raw_article[i].title
+          this.article_time = this.raw_article[i].time
+        }
+      }
     }
   },
   watch: {
@@ -118,6 +109,9 @@ export default {
     },
     filename: function () {
       this.compiledMarkdown(this.filename)
+      this.getTitle()
+    },
+    raw_article: function () {
       this.getTitle()
     }
   },

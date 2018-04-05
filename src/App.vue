@@ -2,7 +2,7 @@
   <div id='app'>
     <drawer :articles='articles' :root_dir='root_dir'></drawer>
     <div class='mdui-container'>
-      <router-view :title="active_title"/>
+      <router-view :title="active_title" :raw_article="articles"/>
     </div>
   </div>
 </template>
