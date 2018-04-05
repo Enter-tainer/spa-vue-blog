@@ -1,6 +1,7 @@
 
 打不倒的空气人，学不会的Haskell
 
+<!--more-->
 
 rqy给我安利了Haskell qwq
 

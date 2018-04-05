@@ -2,12 +2,12 @@
     "root_dir": "",
     "author": "Margatroid",
     "data": [{
+        "title": "关于",
+        "time": "2018-04-05T09:03:56+08:00",
+        "filename": "about.md"
+    }, {
         "title": "学一学Haskell（一）",
         "time": "2018-02-26T09:03:56+08:00",
         "filename": "learn-hs-1.md"
-    }, {
-        "title": "关于",
-        "time": "2018-02-26T09:03:56+08:00",
-        "filename": "about.md"
     }]
 }
