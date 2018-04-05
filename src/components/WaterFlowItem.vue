@@ -1,6 +1,6 @@
 <template>
   <div class="mdui-col-sm-12 mdui-col-md-6 mdui-col-lg-4 mdui-col-xl-4">
-    <div class="mdui-card mdui-shadow-5 mdui-m-t-2 mdui-m-b-2">
+    <div class="mdui-card mdui-shadow-5 mdui-m-t-2">
       <div class="mdui-card-primary">
         <router-link :to="link">
           <div class="mdui-card-primary-title mdui-text-color-theme-700">{{ title }}</div>
