@@ -37,6 +37,7 @@ export default {
   },
   mounted () {
     mdui.mutation()
+    this.getTitle()
     this.compiledMarkdown(this.filename)
   },
   methods: {

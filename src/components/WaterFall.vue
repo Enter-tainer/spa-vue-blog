@@ -23,6 +23,9 @@ export default {
       loading: true
     }
   },
+  mounted () {
+    this.getArticles()
+  },
   components: {WaterfallItem},
   methods: {
     makeArticle: function (mtitle, mtime, mdetail, mlink) {
