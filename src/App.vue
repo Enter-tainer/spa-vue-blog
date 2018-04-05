@@ -1,6 +1,6 @@
 <template>
   <div id='app'>
-    <drawer :articles='articles' :root_dir='root_dir' @view_change="change_active_title"></drawer>
+    <drawer :articles='articles' :root_dir='root_dir'></drawer>
     <div class='mdui-container'>
       <router-view :title="active_title"/>
     </div>
@@ -20,11 +20,6 @@ export default {
     }
   },
   components: {drawer},
-  methods: {
-    change_active_title: function (filename) {
-      this.active_title = filename
-    }
-  },
   created () {
     fetch('static/data.json')
       .then(response => response.json())

@@ -5,6 +5,7 @@
         <div class="mdui-typo-display-1 mdui-m-t-1 mdui-m-b-1 mdui-text-color-theme-700">{{ article_title }}</div>
       </div>
       <a class="mdui-btn mdui-m-l-1 mdui-m-r-1"><i class="mdui-text-color-theme-700 mdui-icon material-icons">create</i> Margatroid</a>
+      <a class="mdui-btn mdui-m-l-1 mdui-m-r-1"><i class="mdui-text-color-theme-700 mdui-icon material-icons">access_time</i>{{publishTime}}</a>
       <div class="mdui-divider mdui-m-t-1 mdui-m-b-1"></div>
       <div class="mdui-typo mdui-card-content" v-html="md"></div>
     </div>
@@ -19,6 +20,7 @@ import mdui from 'mdui'
 import axios from 'axios'
 import hljs from 'highlight.js'
 import marked from 'marked'
+import moment from 'moment'
 // import katex from 'katex'
 
 export default {
@@ -30,13 +32,14 @@ export default {
       error: false,
       md: '',
       articles: [],
-      article_title: ''
+      article_title: '',
+      article_time: ''
     }
   },
   mounted () {
     mdui.mutation()
     this.compiledMarkdown(this.filename)
-    this.get_title()
+    this.getTitle()
     this.article_title = this.title
   },
   methods: {
@@ -93,7 +96,7 @@ export default {
         mdui.JQ('h5').addClass('mdui-text-color-theme-700')
       }, 100)
     },
-    get_title: function () {
+    getTitle: function () {
       fetch('static/data.json')
         .then(response => response.json())
         .then(json => {
@@ -101,9 +104,9 @@ export default {
         })
         .then(function () {
           for (var i = 0; i < this.articles.length; ++i) {
-            console.log(i)
             if (this.articles[i].filename === this.filename) {
               this.article_title = this.articles[i].title
+              this.article_time = this.articles[i].time
             }
           }
         }.bind(this))
@@ -115,7 +118,12 @@ export default {
     },
     filename: function () {
       this.compiledMarkdown(this.filename)
-      this.get_title()
+      this.getTitle()
+    }
+  },
+  computed: {
+    publishTime: function () {
+      return moment.parseZone(this.article_time).locale('zh-cn').format('lll')
     }
   }
 }

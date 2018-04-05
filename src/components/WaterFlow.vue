@@ -6,9 +6,7 @@
       </div>
     </div>
   </div>
-  <div v-else>
-    <div class="mdui-spinner mdui-center mdui-valign mdui-m-t-4"></div>
-  </div>
+  <div class="mdui-spinner mdui-center mdui-valign mdui-m-t-4" v-else></div>
 </template>
 <script>
 import WaterflowItem from './WaterFlowItem.vue'
