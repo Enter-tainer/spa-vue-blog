@@ -2,20 +2,20 @@
   <div v-if="!loading">
     <div class="mdui-row">
       <div v-for="i in article" :key="i.id">
-        <WaterflowItem :title="i.title" :time="i.time" :detail="i.detail" :link="i.link"></WaterflowItem>
+        <WaterfallItem :title="i.title" :time="i.time" :detail="i.detail" :link="i.link"></WaterfallItem>
       </div>
     </div>
   </div>
   <div class="mdui-spinner mdui-center mdui-valign mdui-m-t-4" v-else></div>
 </template>
 <script>
-import WaterflowItem from './WaterFlowItem.vue'
+import WaterfallItem from './WaterFallItem.vue'
 import axios from 'axios'
 import marked from 'marked'
 import moment from 'moment'
 import _ from 'lodash'
 export default {
-  name: 'WaterFlow',
+  name: 'WaterFall',
   data: function () {
     return {
       article: [],
@@ -26,7 +26,7 @@ export default {
   mounted () {
     this.getArticles()
   },
-  components: {WaterflowItem},
+  components: {WaterfallItem},
   methods: {
     makeArticle: function (mtitle, mtime, mdetail, mlink) {
       return {

@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Passage from '../components/Passage'
-import WaterFlow from '../components/WaterFlow'
+import WaterFlow from '../components/WaterFall'
 Vue.use(Router)
 
 export default new Router({
