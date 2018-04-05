@@ -13,7 +13,7 @@
 </template>
 <script>
 export default {
-  name: 'WaterFlowItem',
+  name: 'WaterFallItem',
   props: ['title', 'time', 'link', 'detail']
 }
 </script>
