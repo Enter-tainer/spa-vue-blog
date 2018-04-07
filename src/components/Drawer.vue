@@ -16,7 +16,7 @@
         <ul class="mdui-collapse-item-body mdui-list mdui-list-dense" v-for="i in articles" :key="i.id">
           <router-link :to="root_dir+'/post/'+i.filename">
             <li class="mdui-list-item mdui-ripple">
-              <div class="mdui-list-item-content">{{ i.title }}</div>
+              <div class="mdui-list-item-content mdui-text-truncate">{{ i.title }}</div>
             </li>
           </router-link>
         </ul>
