@@ -1,5 +1,7 @@
 # vue-blog
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Enter-tainer/spa-vue-blog.svg)](https://greenkeeper.io/)
+
 一个xjb写的东西
 
 在[这里](https://margatroid-vue-blog.netlify.com)观看示例
